@@ -1,0 +1,41 @@
+h1{
+  margin: 20px;
+  font-size: xx-large;
+  text-decoration: underline;
+}
+
+p{
+  margin: 20px;
+}
+
+#container{
+display:flex;
+justify-content: center;
+}
+
+img{
+  width: 400px;
+  border: 5px solid black;
+  margin: 5px;
+  height: 400px;
+}
+
+#button-container{
+  display: flex;
+  justify-content: center;
+}
+
+#show-results-btn{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: chartreuse;
+  display: inline-block;
+  justify-content: center;
+  
+}
+
+
+li{
+  margin: 5px;
+  text-align: center;
+}
