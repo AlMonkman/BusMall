@@ -3,7 +3,7 @@
 // ************************* Global Variables *************************
 let myContainer = document.getElementById('container');
 
-let showResultsbBtn = document.getElementById('show-results-btn');
+let showResultsBtn = document.getElementById('show-results-btn');
 
 let imageOne = document.getElementById('img-one');
 let imageTwo = document.getElementById('img-two');
@@ -104,6 +104,9 @@ myContainer.addEventListener('click', handleClick);
 function handleShowResults(event) {
   let resultsList = document.getElementById('display-results');
   if (maxVotes === 0) {
+    imageOne.style.display = 'none';
+    imageTwo.style.display = 'none';
+    imageThree.style.display = 'none';
     for (let i = 0; i < productArray.length; i++) {
       let li = document.createElement('li');
       li.textContent = `${productArray[i].name} was viewed ${productArray[i].views} times and was voted for ${productArray[i].votes} times.`;
@@ -112,7 +115,7 @@ function handleShowResults(event) {
   }
 }
 
-showResultsbBtn.addEventListener('click', handleShowResults);
+showResultsBtn.addEventListener('click', handleShowResults);
 
 
 
