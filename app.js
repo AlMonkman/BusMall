@@ -51,31 +51,31 @@ function renderProductImages() {
   let productOneIndex = getRandomIndex();
   let productTwoIndex = getRandomIndex();
   let productThreeIndex = getRandomIndex();
+  let shownProducts = [];
+  while (shownProducts.length < 3) {
+    shownProducts.push(productOneIndex);
+    shownProducts.push(productTwoIndex);
+    shownProducts.push(productThreeIndex);
+    console.log(shownProducts);
 
-  while (productOneIndex === productTwoIndex) {
-    productTwoIndex = getRandomIndex();
+   for(let i = 0; i < shownProducts.length; i++){
+    
+   }
+    
+
+
+    imageOne.src = productArray[productOneIndex].src;
+    imageOne.alt = productArray[productOneIndex].name;
+    productArray[productOneIndex].views++;
+
+    imageTwo.src = productArray[productTwoIndex].src;
+    imageTwo.alt = productArray[productTwoIndex].name;
+    productArray[productTwoIndex].views++;
+
+    imageThree.src = productArray[productThreeIndex].src;
+    imageThree.alt = productArray[productThreeIndex].name;
+    productArray[productThreeIndex].views++;
   }
-
-  while (productTwoIndex === productThreeIndex) {
-    productThreeIndex = getRandomIndex();
-
-    while (productOneIndex === productThreeIndex) {
-      productThreeIndex = getRandomIndex();
-    }
-  }
-
-  imageOne.src = productArray[productOneIndex].src;
-  imageOne.alt = productArray[productOneIndex].name;
-  productArray[productOneIndex].views++;
-
-  imageTwo.src = productArray[productTwoIndex].src;
-  imageTwo.alt = productArray[productTwoIndex].name;
-  productArray[productTwoIndex].views++;
-
-  imageThree.src = productArray[productThreeIndex].src;
-  imageThree.alt = productArray[productThreeIndex].name;
-  productArray[productThreeIndex].views++;
-
 
 }
 
