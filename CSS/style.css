@@ -15,8 +15,8 @@ p{
 }
 
 #container{
-display:flex;
-justify-content: center;
+display:block;
+text-align: center;
 }
 
 img{
@@ -27,8 +27,8 @@ img{
 }
 
 #button-container{
-  display: flex;
-  justify-content: center;
+  display: block;
+  text-align: center;
 }
 
 #show-results-btn{
@@ -52,8 +52,29 @@ img{
   transition: 0.7s;
 }
 
-li{
-  margin: 10px;
-  text-align: center;
-  font-size: xx-large;
+ul{
+width: max-content;
+height: max-content;
+border: solid black 2px;
+padding: 3%;
 }
+
+li{
+  margin-bottom: 1%;
+}
+
+#chart{
+  grid-column: 2 / 6;
+ margin-right: 20%;
+}
+
+#display-results{
+  grid-column: 1 / 2;
+}
+
+#results{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
