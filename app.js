@@ -57,9 +57,9 @@ function renderProductImages() {
     shownProducts.push(num);
   }
 
-  let productIndexOne = shownProducts.pop();
-  let productIndexTwo = shownProducts.pop();
-  let productIndexThree = shownProducts.pop();
+  let productIndexOne = shownProducts.shift();
+  let productIndexTwo = shownProducts.shift();
+  let productIndexThree = shownProducts.shift();
   console.log(shownProducts);
 
   imageOne.src = productArray[productIndexOne].src;
@@ -76,24 +76,6 @@ function renderProductImages() {
 }
 
 renderProductImages();
-
-// function newProductImages() {
-//   let productIndexFour = shownProducts.pop();
-//   let productIndexFive = shownProducts.pop();
-//   let productIndexSix = shownProducts.pop();
-
-//   imageOne.src = productArray[productIndexFour].src;
-//   imageOne.alt = productArray[productIndexFour].name;
-//   productArray[productIndexFour].views++;
-
-//   imageTwo.src = productArray[productIndexFive].src;
-//   imageTwo.alt = productArray[productIndexFive].name;
-//   productArray[productIndexFive].views++;
-
-//   imageThree.src = productArray[productIndexSix].src;
-//   imageThree.alt = productArray[productIndexSix].name;
-//   productArray[productIndexSix].views++;
-// }
 
 // Events
 
