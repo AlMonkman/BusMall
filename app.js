@@ -8,9 +8,10 @@ let showResultsBtn = document.getElementById('show-results-btn');
 let imageOne = document.getElementById('img-one');
 let imageTwo = document.getElementById('img-two');
 let imageThree = document.getElementById('img-three');
+// localStorage.clear();
 
+let productArray = JSON.parse(localStorage.getItem('product')) ?? [];
 let shownProducts = [];
-const productArray = [];
 let maxVotes = 25;
 console.log(productArray);
 
@@ -21,7 +22,10 @@ function Product(name, fileExtension = 'jpg') {
   this.src = `img/${name}.${fileExtension}`;
   this.views = 0;
   this.votes = 0;
-  productArray.push(this);
+  if (productArray.length < 19){
+    productArray.push(this);
+  }
+ 
 }
 
 new Product('bag');
@@ -60,7 +64,7 @@ function renderProductImages() {
   let productIndexOne = shownProducts.shift();
   let productIndexTwo = shownProducts.shift();
   let productIndexThree = shownProducts.shift();
-  console.log(shownProducts);
+  // console.log(shownProducts);
 
   imageOne.src = productArray[productIndexOne].src;
   imageOne.alt = productArray[productIndexOne].name;
@@ -76,6 +80,18 @@ function renderProductImages() {
 }
 
 renderProductImages();
+
+// Local Storage
+
+function addToStorage(storedProduct) {
+  for (let i = 0; i < productArray.length; i++) {
+    storedProduct = JSON.stringify(productArray);
+    localStorage.setItem('product', storedProduct);
+  }
+
+}
+
+
 
 // Events
 
@@ -96,7 +112,13 @@ function handleClick(event) {
 }
 
 myContainer.addEventListener('click', handleClick);
-function handleShowResults(event) {
+
+function handleShowResults() {
+
+  for (let i = 0; i < productArray.length; i++) {
+    addToStorage(productArray);
+  }
+
   let resultsList = document.getElementById('display-results');
   if (maxVotes === 0) {
     imageOne.style.display = 'none';
@@ -118,13 +140,13 @@ function handleShowResults(event) {
           label: '# of Votes',
           data: [productArray[0].votes, productArray[1].votes, productArray[2].votes, productArray[3].votes, productArray[4].votes, productArray[5].votes, productArray[6].votes, productArray[7].votes, productArray[8].votes, productArray[9].votes, productArray[10].votes, productArray[11].votes, productArray[12].votes, productArray[13].votes, productArray[14].votes, productArray[15].votes, productArray[16].votes, productArray[17].votes, productArray[18].votes],
           backgroundColor: [
-           'purple'
+            'purple'
           ],
           borderColor: [
             'purple'
           ],
           borderWidth: 1
-        },{
+        }, {
           label: '# of Veiws',
           data: [productArray[0].views, productArray[1].views, productArray[2].views, productArray[3].views, productArray[4].views, productArray[5].views, productArray[6].views, productArray[7].views, productArray[8].views, productArray[9].views, productArray[10].views, productArray[11].views, productArray[12].views, productArray[13].views, productArray[14].views, productArray[15].views, productArray[16].views, productArray[17].views, productArray[18].views],
           backgroundColor: [
@@ -135,7 +157,7 @@ function handleShowResults(event) {
           ],
           borderWidth: 1
         }]
-        
+
       },
       options: {
         scales: {
