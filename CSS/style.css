@@ -61,6 +61,7 @@ padding: 3%;
 
 li{
   margin-bottom: 1%;
+  text-transform: capitalize;
 }
 
 #chart{
